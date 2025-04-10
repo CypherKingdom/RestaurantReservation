@@ -1,0 +1,25 @@
+CREATE DATABASE bookingtable;
+USE BookingTable;
+
+CREATE TABLE users(
+Id INT AUTO_INCREMENT PRIMARY KEY,
+FirstName VARCHAR(50),
+LastName VARCHAR(50),
+Password VARCHAR(50),
+GuestNbr INT,
+`Phone number` VARCHAR(15),
+`E-mail` VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE reservation (
+ResId INT AUTO_INCREMENT PRIMARY KEY,
+UserId INT,
+GuestNbr INT,
+LastName VARCHAR(50),
+`Phone number` VARCHAR(15),
+`E-mail` VARCHAR(50),
+`date` DATE,
+`time` TIME,
+area VARCHAR(20),
+FOREIGN KEY (UserId) REFERENCES users (Id)
+);
